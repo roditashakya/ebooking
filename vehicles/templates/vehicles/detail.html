@@ -1,0 +1,23 @@
+{% extends "vehicles/base.html" %}
+{% block title %}{{ traveldetail.journey }}{% endblock %}
+
+{% block content %}
+ <h2>Current time is {% now "Y M d H:i:s" %}</h2>
+<h1>{{ traveldetail.journey }}</h1>
+<form method="post" class="m-3" action="/vehicles/{{ traveldetail.id }}/search/">
+    {% csrf_token %}
+    {% for td in traveldetail.count.all %}
+            <div class="col-9">
+                  <div class="row">
+                    <div class="col-3"><p class="card-text">Bus Name{{ td.title|title}}</p></div>
+                    <div class="col-3"><p class="card-text">Journey {{ td.from_address|wordcount }}</p></div>
+                    <div class="col-3"><p class="card-text">Departure {{ td.departure_date|date }}</p></div>
+                    <div class="col-3"><p class="card-text">Fare {{ td.price|random }}</p></div>
+                    <div class="col-3"><a href="/vehicles/{{ td.id }}" class="btn btn-primary">View Details</a></div>
+                  </div>
+            </div>
+    {% endfor %}
+    <input type="submit" value="Submit Review">
+</form>
+
+{% endblock %}

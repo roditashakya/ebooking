@@ -1,0 +1,5 @@
+body{
+    background-color: aliceblue;
+    background-image: url(/static/travel.jpg);
+    background-repeat-y: no-repeat;
+}

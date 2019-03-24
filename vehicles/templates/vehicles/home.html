@@ -1,0 +1,19 @@
+{% extends "vehicles/base.html" %}
+
+{% block content %}
+
+    <h1>Hello there from template</h1>
+
+    jinga templating language
+
+    {% for t in traveldetails %}
+       <p>
+        <div class="list-group"><button type="button">
+            <a href="/vehicles/{{ t.id }}" button type="button" class="list-group-item list-group-item-action active">{{ t.journey }}</a>
+        </button>
+        </div>
+       </p>
+    {% endfor %}
+
+{% endblock  %}
+
