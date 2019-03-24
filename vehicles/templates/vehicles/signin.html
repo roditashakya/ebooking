@@ -1,4 +1,3 @@
-{#{% extends "vehicles/base.html" %}#}
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='slim' %}
@@ -16,18 +15,19 @@
                 <div class="card-body">
                     <form action="" method="post">
                         {% csrf_token %}
-                        {% bootstrap_form form %}
-{#                        {{ form.as_p }}#}
+                        {% for field in form %}
+                            {% bootstrap_field field %}
+                        {% endfor %}
                         <input type="submit" class="btn btn-success text-center w-100 mb-3" value="Sign In">
-                         <small class="text-muted ml-2">
-                            <a href="/password-reset">Forgot Password?</a>
-                         </small>
-                        <a href="/signup" class="small">Sign Up</a>
-                        <a href="/" class="float-right small">Home</a>
-
+                        <small class="text-muted ml-2"><a href="/password-reset">Forgot Password?</a></small>
                     </form>
-
                 </div>
+                <div class="card-footer text-center">
+                    <a href="/signup" class="float-left small">Sign Up</a>
+                    <a href='{% url 'social:begin' 'google-oauth2' %}'>Login with Google</a>
+                    <a href="/" class="float-right small">Home</a>
+                </div>
+
             </div>
         </div>
     </div>

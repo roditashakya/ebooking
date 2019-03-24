@@ -12,6 +12,8 @@ urlpatterns = [
     path('', views.home),
     path('vehicles/', include("vehicles.urls")),
     # path('', include('vehicles.urls')),
+    path('api/v1/', include('social_django.urls', namespace='social')),
+    path('accounts/profile/', views.profile, name="profile"),
 
     path('signup/', views.signup, name="signup"),
     path('signin/', views.signin, name="signin"),
@@ -39,9 +41,3 @@ urlpatterns = [
          ),
 
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-urlpatterns += staticfiles_urlpatterns()
-
-# ] +  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

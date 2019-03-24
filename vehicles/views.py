@@ -40,7 +40,7 @@ def signup(request):
             user = form.save(commit=False)
             user.save()
             messages.success(request, "User Saved")
-            redirect("/home/")
+            redirect("vehicles/signin.html")
         else:
             messages.error(request, "Error in form")
     else:
@@ -74,6 +74,12 @@ def signout(request):
 def checkout(request):
     request.session.pop('data', None)
     return redirect("/")
+
+def profile(req):
+    return render(req, "vehicles/profile.html")
+
+# def googlemap(req):
+#     return render(req, "eco/map.html", {})
 
 # def password_reset(request):
 #     if request.method == "POST":
