@@ -78,8 +78,8 @@ def checkout(request):
 def profile(req):
     return render(req, "vehicles/profile.html")
 
-# def googlemap(req):
-#     return render(req, "eco/map.html", {})
+def googlemap(req):
+    return render(req, "vehicles/map.html", {})
 
 # def password_reset(request):
 #     if request.method == "POST":

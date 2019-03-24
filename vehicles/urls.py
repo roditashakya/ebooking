@@ -14,6 +14,7 @@ urlpatterns = [
     path('search/', views.search),
     path('<int:id>/', views.detail),
     path('add_schedule/', views.detail),
+    path('googlemap/', views.googlemap, name='googlemap'),
 
     # path('accounts/profile/', views.profile, name="profile"),
     #
